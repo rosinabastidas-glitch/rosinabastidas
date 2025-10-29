@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Formadora TIC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            animation: fadeInDown 1s ease;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-top: 10px;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .tab-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 20px 0;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .skill-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        h3 {
+            margin-bottom: 15px;
+            color: #764ba2;
+        }
+
+        .project-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .project-item:hover {
+            background: #e9ecef;
+            border-left-width: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .contact-info {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .contact-item {
+            display: inline-block;
+            margin: 15px 20px;
+            font-size: 1.1em;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tu Nombre Aquí</h1>
+            <p class="subtitle">✨ Formadora de Docentes en TIC | Creadora de Contenido | Diseñadora de Experiencias de Aprendizaje ✨</p>
+        </header>
+
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="showTab('inicio')">Inicio</button>
+            <button class="tab-btn" onclick="showTab('servicios')">Servicios</button>
+            <button class="tab-btn" onclick="showTab('proyectos')">Proyectos</button>
+            <button class="tab-btn" onclick="showTab('recursos')">Recursos</button>
+            <button class="tab-btn" onclick="showTab('contacto')">Contacto</button>
+        </div>
+
+        <div id="inicio" class="content-section active">
+            <div class="card">
+                <h2>Sobre Mí</h2>
+                <p style="font-size: 1.1em; margin-bottom: 20px;">
+                    Soy una profesional apasionada por la integración de la tecnología en la educación. 
+                    Mi misión es empoderar a los docentes con herramientas y estrategias innovadoras 
+                    que transformen sus prácticas pedagógicas y enriquezcan las experiencias de aprendizaje de sus estudiantes.
+                </p>
+            </div>
+
+            <div class="grid">
+                <div class="skill-card">
+                    <div class="skill-icon">👩‍🏫</div>
+                    <h3>Formación Docente</h3>
+                    <p>Capacitación en herramientas digitales y metodologías innovadoras</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Creación de Contenido</h3>
+                    <p>Desarrollo de materiales educativos digitales atractivos</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💡</div>
+                    <h3>Diseño de Experiencias</h3>
+                    <p>Diseño instruccional centrado en el aprendizaje activo</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🎯</div>
+                    <h3>Recursos Interactivos</h3>
+                    <p>Creación de actividades digitales y gamificación</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="servicios" class="content-section">
+            <div class="card">
+                <h2>Mis Servicios</h2>
+                <div class="project-item">
+                    <h3>🎓 Talleres y Capacitaciones</h3>
+                    <p>Sesiones prácticas sobre herramientas TIC, metodologías activas y estrategias de integración tecnológica en el aula.</p>
+                </div>
+                <div class="project-item">
+                    <h3>📚 Diseño Instruccional</h3>
+                    <p>Creación de cursos virtuales, programas de formación y secuencias didácticas con enfoque en competencias digitales.</p>
+                </div>
+                <div class="project-item">
+                    <h3>🎬 Producción de Contenido Educativo</h3>
+                    <p>Videos tutoriales, infografías, presentaciones interactivas y materiales multimedia para el aprendizaje.</p>
+                </div>
+                <div class="project-item">
+                    <h3>🔧 Asesoría Pedagógica Digital</h3>
+                    <p>Acompañamiento personalizado para la transformación digital de instituciones educativas.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="proyectos" class="content-section">
+            <div class="card">
+                <h2>Proyectos Destacados</h2>
+                <div class="project-item">
+                    <h3>Programa de Alfabetización Digital Docente</h3>
+                    <p><strong>Descripción:</strong> Formación integral de 150+ docentes en herramientas colaborativas y gestión de aulas virtuales.</p>
+                    <p><strong>Impacto:</strong> Mejora del 85% en la confianza digital del profesorado participante.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Biblioteca de Recursos Interactivos</h3>
+                    <p><strong>Descripción:</strong> Colección de 50+ actividades gamificadas para diferentes niveles educativos.</p>
+                    <p><strong>Impacto:</strong> Más de 2000 descargas y uso activo en múltiples instituciones.</p>
+                </div>
+                <div class="project-item">
+                    <h3>Curso Virtual: Evaluación Formativa con TIC</h3>
+                    <p><strong>Descripción:</strong> Programa autoasistido sobre estrategias de evaluación innovadoras.</p>
+                    <p><strong>Impacto:</strong> 300+ docentes certificados en 6 meses.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="recursos" class="content-section">
+            <div class="card">
+                <h2>Recursos Gratuitos</h2>
+                <p style="margin-bottom: 20px;">Comparto regularmente recursos y herramientas para enriquecer tu práctica docente:</p>
+                
+                <div class="grid">
+                    <div class="project-item">
+                        <h3>📝 Plantillas</h3>
+                        <p>Formatos editables para planificación de clases con TIC</p>
+                        <button class="btn-primary">Descargar</button>
+                    </div>
+                    <div class="project-item">
+                        <h3>🎮 Actividades Interactivas</h3>
+                        <p>Juegos y dinámicas digitales listas para usar</p>
+                        <button class="btn-primary">Ver Colección</button>
+                    </div>
+                    <div class="project-item">
+                        <h3>📖 Guías Rápidas</h3>
+                        <p>Tutoriales paso a paso de herramientas educativas</p>
+                        <button class="btn-primary">Explorar</button>
+                    </div>
+                    <div class="project-item">
+                        <h3>🎥 Videotutoriales</h3>
+                        <p>Canal con tips y trucos para docentes</p>
+                        <button class="btn-primary">Ver Videos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contacto" class="content-section">
+            <div class="card">
+                <h2>¡Trabajemos Juntos!</h2>
+                <p style="text-align: center; font-size: 1.1em; margin-bottom: 30px;">
+                    ¿Tienes un proyecto en mente? ¿Necesitas capacitación para tu equipo docente? 
+                    Me encantaría conocer tus necesidades y ayudarte a transformar la educación con tecnología.
+                </p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        📧 <strong>Email:</strong> tu.email@ejemplo.com
+                    </div>
+                    <div class="contact-item">
+                        📱 <strong>WhatsApp:</strong> +54 9 XXXX-XXXX
+                    </div>
+                    <div class="contact-item">
+                        💼 <strong>LinkedIn:</strong> /tu-perfil
+                    </div>
+                    <div class="contact-item">
+                        🎥 <strong>YouTube:</strong> /tu-canal
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn-primary">Solicitar una Consultoría</button>
+                    <button class="btn-primary">Agendar una Reunión</button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 - Transformando la educación con tecnología e innovación</p>
+        </footer>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Ocultar todas las secciones
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Desactivar todos los botones
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Activar la sección seleccionada
+            document.getElementById(tabName).classList.add('active');
+
+            // Activar el botón correspondiente
+            event.target.classList.add('active');
+
+            // Scroll suave hacia arriba
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
